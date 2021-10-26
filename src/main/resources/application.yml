@@ -1,0 +1,12 @@
+spring:
+  datasource:
+      driverClassName: com.microsoft.sqlserver.jdbc.SQLServerDriver
+      url: jdbc:sqlserver://localhost\SQLEXPRESS;databaseName=dbspotmusic
+      username: sa
+      password: tamid
+      platform: mssql
+  jpa:
+    show_sql: true
+    auto: update
+    properties:
+      hibernate.dialect: org.hibernate.dialect.SQLServer2012Dialect
