@@ -12,6 +12,7 @@ public class MusicaDaoImpl implements MusicaDao {
 
     @PersistenceContext
     private EntityManager em;
+
     @Override
     public void salvar(Musica musica) {
         em.persist(musica);
@@ -19,15 +20,15 @@ public class MusicaDaoImpl implements MusicaDao {
 
     @Override
     public List<Musica> recuperarPorPlayListId(long playlistId) {
-        return em.createQuery("select m from Musica where m.playlist.id = :playlistId ", Musica.class)
-                .setParameter("playlistId" ,playlistId )
+        return em.createQuery("select m from Musica m where m.playlist.id = :playlistId ", Musica.class)
+                .setParameter("playlistId" , playlistId )
                 .getResultList();
 
     }
 
     @Override
     public Musica recuperarPorPlayListIdeMusicaId(long playlistId, long musicaId) {
-        return em.createQuery("select m from Musica where m.playlist.id = :playlistId and m.id = :musicaId", Musica.class)
+        return em.createQuery("select m from Musica m where m.playlist.id = :playlistId and m.id = :musicaId", Musica.class)
                 .setParameter("playlistId", playlistId)
                 .setParameter("musicaId", musicaId)
                 .getSingleResult();

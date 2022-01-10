@@ -1,7 +1,6 @@
 package br.com.devmedia.service;
 
 import br.com.devmedia.dao.MusicaDao;
-import br.com.devmedia.dao.PlayListDao;
 import br.com.devmedia.domain.Musica;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -20,14 +19,14 @@ public class MusicaServiceImpl implements MusicaService {
 
     @Override
     public void salvar(Musica musica, long playlistId) {
-        musica.setPlayList(playListService.recuperarPorId(playlistId));
+        musica.setPlaylist(playListService.recuperarPorId(playlistId));
         musicaDao.salvar(musica);
     }
 
     @Override
     @Transactional(readOnly = true)
-    public List<Musica> recuperarPorPlayList(long playlsitId) {
-        return musicaDao.recuperarPorPlayListId(playlsitId);
+    public List<Musica> recuperarPorPlayList(long playlistId) {
+        return musicaDao.recuperarPorPlayListId(playlistId);
     }
 
     @Override
@@ -38,7 +37,7 @@ public class MusicaServiceImpl implements MusicaService {
 
     @Override
     public void atualizar(Musica musica, long playlistId) {
-        musica.setPlayList(playListService.recuperarPorId(playlistId));
+        musica.setPlaylist(playListService.recuperarPorId(playlistId));
         musicaDao.atualizar(musica);
     }
 

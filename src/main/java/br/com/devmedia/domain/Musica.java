@@ -30,7 +30,7 @@ public class Musica {
 
     @ManyToOne
     @JoinColumn(name = "id_playlist_fk")
-    private PlayList playList;
+    private PlayList playlist;
 
     public long getId() {
         return id;
@@ -64,11 +64,11 @@ public class Musica {
         this.nota = nota;
     }
 
-    public PlayList getPlayList() {
-        return playList;
+    public PlayList getPlaylist() {
+        return playlist;
     }
 
-    public void setPlayList(PlayList playList) {
-        this.playList = playList;
+    public void setPlaylist(PlayList playlist) {
+        this.playlist = playlist;
     }
 }

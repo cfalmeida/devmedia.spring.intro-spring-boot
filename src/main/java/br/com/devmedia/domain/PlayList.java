@@ -13,19 +13,19 @@ public class PlayList {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    public long id;
+    private long id;
 
     @NotBlank
     @Size(min = 2, max = 60)
     @Column(nullable = false, length = 60)
-    public String nome;
+    private String nome;
 
     @NotBlank
     @Column(nullable = false)
-    public String descricao;
+    private String descricao;
 
-    @OneToMany(mappedBy = "playList", cascade = CascadeType.ALL)
-    public List<Musica> musicas;
+    @OneToMany(mappedBy = "playlist", cascade = CascadeType.ALL)
+    private List<Musica> musicas;
 
     public long getId() {
         return id;

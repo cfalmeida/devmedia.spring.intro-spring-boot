@@ -9,8 +9,6 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-
-import javax.naming.Binding;
 import javax.validation.Valid;
 
 @Controller
@@ -58,5 +56,12 @@ public class PlayListController {
         playListService.atualizar(playList);
         attr.addFlashAttribute("mensagem", "PlayList atualizada com sucesso.");
         return new ModelAndView("redirect:/playlists/listar");
+    }
+
+    @GetMapping("/{id}/remover")
+    public String remover(@PathVariable("id") long id, RedirectAttributes attr){
+        playListService.excluir(id);
+        attr.addFlashAttribute("mensagem", "PlayList removida com sucesso.");
+        return "redirect:/playlists/listar";
     }
 }
